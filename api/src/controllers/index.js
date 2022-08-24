@@ -16,18 +16,8 @@ const dataApi = async () => {
                 population: pais.population
             })
         }))
-    return aData;
+    return Promise.all(aData);
 }
-
-/* const dataDB = async () => {
-    return await Country.findAll({
-        model: Activity,
-        attributes:["name"],
-        through:{
-            attributes:[]
-        }
-    })
-} */
 
 const getAllCountries = async () => {
     let db = await Country.findAll({include: Activity});
@@ -40,6 +30,5 @@ const getAllCountries = async () => {
 
 module.exports = {
     dataApi,
-    /* dataDB, */
     getAllCountries
 }
