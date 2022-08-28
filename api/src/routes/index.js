@@ -51,9 +51,8 @@ router.post("/activities", async (req, res) => {
                 season 
             }
         })
-        console.log(newActivity);
         let country = await Country.findAll({ where: { id: idd } })
-        console.log(country);
+        
         country.map(async (pais) => {
             await pais.addActivity([newActivity[0].id])
         })
