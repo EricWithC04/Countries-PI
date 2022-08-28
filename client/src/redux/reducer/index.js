@@ -11,6 +11,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 countries: action.payload
             }
+        case "GET_COUNTRY_DETAIL":
+            return {
+                ...state,
+                countryDetail: action.payload
+            }
         default: return state;
     }
 }

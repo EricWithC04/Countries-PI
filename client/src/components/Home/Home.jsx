@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../NavBar/NavBar.jsx";
 import Filters from "../Filters/Filters.jsx";
 import { getCountries } from "../../redux/actions/index.js";
@@ -7,9 +7,12 @@ import { getCountries } from "../../redux/actions/index.js";
 const Home = () => {
 
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getCountries())
     }, [dispatch])
+
+    const allCountries = useSelector(state => state.countries);
 
     return (
         <div className="home">
