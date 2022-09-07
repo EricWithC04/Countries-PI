@@ -1,0 +1,10 @@
+.card {
+    height: 240px;
+    width: 360px;
+    outline: 2px solid black;
+}
+
+.card img {
+    height: 40%;
+    width: 40%;
+}

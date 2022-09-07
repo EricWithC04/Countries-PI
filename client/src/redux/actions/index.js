@@ -19,11 +19,9 @@ export function getCountries() {
 
 export function getCountryDetail(id) {
     return async function (dispatch) {
-        const thisCountry = await fetch(`http://localhost:3001/countries?name=${id}`)
-            .then(response => response.json());
         dispatch({
             type: "GET_COUNTRY_DETAIL",
-            payload: thisCountry
+            payload: id
         });
     }
 }

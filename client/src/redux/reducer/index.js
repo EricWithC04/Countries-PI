@@ -14,7 +14,7 @@ const rootReducer = (state = initialState, action) => {
         case "GET_COUNTRY_DETAIL":
             return {
                 ...state,
-                countryDetail: action.payload
+                countryDetail: state.countries.find(pais => pais.id === action.payload)
             }
         default: return state;
     }

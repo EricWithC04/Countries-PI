@@ -17,7 +17,12 @@ const CountryDetail = () => {
 
     return (
         <div>
-            Aqui van a ir los detalles del country
+            {
+                detail ? <div>
+                    Aqui van a ir los detalles del country
+                </div> : 
+                <div>Detalles no encontrados</div>
+            }
         </div>
     )
 }
