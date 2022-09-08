@@ -7,7 +7,11 @@ export function getCountries() {
                     id: pais.id,
                     name: pais.name,
                     img: pais.image,
-                    continent: pais.continent
+                    continent: pais.continent,
+                    capital: pais.capital,
+                    subregion: pais.subregion,
+                    area: pais.area,
+                    population: pais.population
                 }
             }))
         dispatch({
@@ -22,10 +26,24 @@ export function getCountryDetail(id) {
         dispatch({
             type: "GET_COUNTRY_DETAIL",
             payload: id
-        });
+        })
     }
 }
-/*
-export function getCountries() {
-    
-} */
+
+export function sortName(value) {
+    return async function (dispatch) {
+        dispatch({
+            type: "ORDER_NAME",
+            payload: value
+        })
+    }
+}
+
+export function sortPopulation(value) {
+    return async function (dispatch) {
+        dispatch({
+            type: "ORDER_POPULATION",
+            payload: value
+        })
+    }
+}

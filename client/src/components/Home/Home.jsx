@@ -17,32 +17,24 @@ const Home = () => {
     }, [dispatch])
 
     const allCountries = useSelector(state => state.countries);
-    console.log(allCountries)
     
-    /* const [pageCountries, setPageCountries] = useState([]); */
     const [actualPage, setActualPage] = useState(1);
-    const [countriesPerPage, setCountriesPerPage] = useState(9)
-    /* let paged = [];
-    for (let i = 0; i < allCountries.length; i+25) {
-        let page = allCountries.splice(i, i+15)
-        paged.push(page)
-        setPages([...pages, allCountries.splice(0, 25)])
-    }
-    console.log(pages) */
+    const [countriesPerPage, setCountriesPerPage] = useState(10);
     const lastCountry = actualPage * countriesPerPage;
     const firstCountry = lastCountry - countriesPerPage;
     const paginated = (pageNumber) => {
         setActualPage(pageNumber);
     }
+
     const currentPage = allCountries.slice(firstCountry, lastCountry);
 
     return (
         <div className="home">
-            <Link to="/Home/COL">
-                <h1>Bienvenido a mi PI de Countries!</h1>
-            </Link>
+            <h1>Bienvenido a mi PI de Countries!</h1>
             <NavBar></NavBar>
-            <Filters></Filters>
+            <Filters 
+                setPage={paginated}
+            />
             <Paginated 
                 countriesPerPage={countriesPerPage}
                 allCountries={allCountries.length}
