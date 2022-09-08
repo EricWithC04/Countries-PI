@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import Home from './components/Home/Home';
 import CountryDetail from './components/CountryDetail/CountryDetail';
 import CreateActivity from "./components/CreateActivity/CreateActivity.jsx";
+import Error404 from './components/Error404/Error404';
 
 function App() {
   return (
@@ -22,8 +23,12 @@ function App() {
           component={CreateActivity}
         />
         <Route
-          path="/Home/:idParams"
+          path="/Home/Country/:idParams"
           component={CountryDetail}
+        />
+        <Route
+          path="*"
+          component={Error404}
         />
       </Switch>
     </div>

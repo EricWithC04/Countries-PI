@@ -13,13 +13,18 @@ const CountryDetail = () => {
     }, [dispatch])
 
     const detail = useSelector(state => state.countryDetail)
-    console.log(detail)
 
     return (
         <div>
             {
                 detail ? <div>
-                    Aqui van a ir los detalles del country
+                    <img src={detail.img} alt="flag" />
+                    <h2>{detail.name}</h2>
+                    <p>{detail.continent}</p>
+                    <p>{detail.capital}</p>
+                    <p>{detail.subregion}</p>
+                    <p>{detail.area}</p>
+                    <p>{detail.population}</p>
                 </div> : 
                 <div>Detalles no encontrados</div>
             }

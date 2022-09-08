@@ -48,6 +48,7 @@ const Home = () => {
                                 img={pais.img}
                                 name={pais.name}
                                 continent={pais.continent}
+                                id={pais.id}
                             />
                         )
                     }) : <div>Cargando paises...</div>
